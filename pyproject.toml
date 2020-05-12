@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "drf-cli"
+version = "0.1.0"
+description = "Tool for creating DRF projects"
+authors = ["Patrick Rodrigues"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+typer = "^0.2.1"
+cookiecutter = "^1.7.2"
+
+[tool.poetry.dev-dependencies]
+
+[tool.poetry.scripts]
+drf = 'drf_cli.app:app'
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"

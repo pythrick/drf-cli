@@ -1,0 +1,18 @@
+version: "3.5"
+
+services:
+  app: &app
+    build:
+      context: .
+    image: {{cookiecutter.module_name}}
+    volumes:
+      - .:/usr/app
+    command: gunicorn -t 600 -w 4 -b 0.0.0.0:80 --log-level=debug {{cookiecutter.module_name}}.wsgi
+    env_file: &envfile
+      - .env
+    ports:
+      - "8000:80"
+    expose:
+      - "8000"
+    stdin_open: true
+    tty: true

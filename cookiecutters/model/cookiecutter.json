@@ -1,0 +1,7 @@
+{
+    "name": "pizza",
+    "class_name": "Pizza",
+    "class_name_plural": "Pizzas",
+    "table_name": "pizzas",
+    "app_name": "app"
+}
