@@ -1,4 +1,4 @@
-"""{{cookiecutter.module_name}} URL Configuration
+"""pizzaria URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.0/topics/http/urls/
@@ -16,8 +16,12 @@ Including another URLconf
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
-urlpatterns = [path("admin/", admin.site.urls),] + static(
-    settings.STATIC_URL, document_root=settings.STATIC_ROOT
-)
+from {{cookiecutter.module_name}}.app.router import router
+
+urlpatterns = [
+    path('', include(router.urls)),
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    path("admin/", admin.site.urls),
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
