@@ -1,5 +1,6 @@
 default:
   # APP specific settings
+  module_name: {{cookiecutter.module_name}}
   server: foo.com
   username: default user
   password: false
