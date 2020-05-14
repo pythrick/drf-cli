@@ -8,6 +8,7 @@ authors = ["Patrick Rodrigues"]
 python = "^3.8"
 typer = "^0.2.1"
 cookiecutter = "^1.7.2"
+pyyaml = "^5.3.1"
 
 [tool.poetry.dev-dependencies]
 
