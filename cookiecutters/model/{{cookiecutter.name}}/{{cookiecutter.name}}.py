@@ -1,6 +1,6 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from {{cookiecutter.app_name}}.app.mixins import ModelMixin
+from ..mixins import ModelMixin
 
 
 class {{cookiecutter.class_name}}(ModelMixin):
