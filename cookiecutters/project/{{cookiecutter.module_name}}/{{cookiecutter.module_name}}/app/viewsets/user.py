@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User
 from rest_framework import viewsets
 
-from pizzaria.app.serializers import UserSerializer
+from {{cookiecutter.module_name}}.app.serializers import UserSerializer
 
 
 class UserViewSet(viewsets.ModelViewSet):
