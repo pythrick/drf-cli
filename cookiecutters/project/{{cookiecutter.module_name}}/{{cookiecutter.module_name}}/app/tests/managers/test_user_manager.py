@@ -1,5 +1,4 @@
 import pytest
-
 from {{cookiecutter.module_name}}.app.models import User
 
 

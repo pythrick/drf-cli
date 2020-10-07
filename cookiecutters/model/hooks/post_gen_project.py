@@ -1,9 +1,8 @@
 import os
+import shutil
 import sys
 
 import yaml
-import shutil
-
 
 ROOT_DIR = os.path.dirname(os.getcwd())
 
@@ -16,16 +15,13 @@ def load_settings():
 
 def move_model_file():
     settings = load_settings()
-    source = os.path.join(
-        ROOT_DIR,
-        "{{cookiecutter.name}}/{{cookiecutter.name}}.py"
-    )
+    source = os.path.join(ROOT_DIR, "{{cookiecutter.name}}/{{cookiecutter.name}}.py")
     destination = os.path.join(
         ROOT_DIR,
         settings["default"]["module_name"],
         "{{cookiecutter.app_name}}",
         "models",
-        "{{cookiecutter.name}}.py"
+        "{{cookiecutter.name}}.py",
     )
     os.rename(source, destination)
 
@@ -43,10 +39,12 @@ def add_model_import():
         settings["default"]["module_name"],
         "{{cookiecutter.app_name}}",
         "models",
-        "__init__.py"
+        "__init__.py",
     )
     with open(init_file_path, "a+") as init_file:
-        init_file.write("from .{{cookiecutter.name}} import {{cookiecutter.class_name}}\n")
+        init_file.write(
+            "from .{{cookiecutter.name}} import {{cookiecutter.class_name}}\n"
+        )
 
 
 def add_model_properties():
@@ -64,7 +62,7 @@ def add_model_properties():
             "decimal": f"DecimalField(verbose_name=_('{property_verbose}'), max_digits=9, decimal_places=2)",
             "boolean": f"BooleanField(verbose_name=_('{property_verbose}'), )",
             "date": f"DateField(verbose_name=_('{property_verbose}'), )",
-            "datetime": f"DateTimeField(verbose_name=_('{property_verbose}'), )"
+            "datetime": f"DateTimeField(verbose_name=_('{property_verbose}'), )",
         }
         types = ", ".join(property_types.keys())
         property_chosen = input(f"Property type: [{types}]")
@@ -72,10 +70,7 @@ def add_model_properties():
             print("Invalid property type.")
             sys.exit(-1)
         property_type = property_types[property_chosen]
-        properties.append({
-            "name": property_name,
-            "type": property_type
-        })
+        properties.append({"name": property_name, "type": property_type})
 
     write_properties_to_file(properties)
 
@@ -87,7 +82,7 @@ def write_properties_to_file(properties: list):
         settings["default"]["module_name"],
         "{{cookiecutter.app_name}}",
         "models",
-        "{{cookiecutter.name}}.py"
+        "{{cookiecutter.name}}.py",
     )
     with open(model_file_path, "a+") as model_file:
         model_file.write("\n")
@@ -95,7 +90,7 @@ def write_properties_to_file(properties: list):
             model_file.write(f"    {p['name']} = models.{p['type']}\n")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     move_model_file()
     delete_model_temp_dir()
     add_model_import()

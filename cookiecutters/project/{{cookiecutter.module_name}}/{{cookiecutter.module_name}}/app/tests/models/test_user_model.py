@@ -10,7 +10,6 @@ class TestUserModel:
     def user(self):
         return mixer.blend("app.User")
 
-
     def test_pk(self, user):
         assert isinstance(
             user.pk, uuid.UUID

@@ -3,7 +3,6 @@ import os
 import typer
 from cookiecutter.main import cookiecutter
 
-
 app = typer.Typer()
 new_app = typer.Typer()
 app.add_typer(new_app, name="new")

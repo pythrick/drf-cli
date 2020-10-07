@@ -1,6 +1,6 @@
+import os
 import random
 import string
-import os
 
 
 def create_random_secret_key():
@@ -11,5 +11,5 @@ def create_random_secret_key():
         secrets_file.write(f"  SECRET_KEY: {secret_key}")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     create_random_secret_key()

@@ -1,7 +1,6 @@
 from django.contrib import admin
 from django.contrib.auth import admin as auth_admin
 from django.utils.translation import gettext_lazy as _
-
 from {{cookiecutter.module_name}}.app import models
 
 
