@@ -15,11 +15,11 @@ class TestUserManager:
 
         assert user.name == name, f"The user name should be: {name}."
         assert user.email == email, f"The user email should be: {email}."
-        assert user.password is not None, f"The password should not be empty."
+        assert user.password is not None, "The password should not be empty."
         assert (
             user.password != password
-        ), f"The stored password should not be equal to original."
-        assert user.check_password(password), f"The password should be encripted."
+        ), "The stored password should not be equal to original."
+        assert user.check_password(password), "The password should be encripted."
 
     def test_create_superuser(self, fake):
         name = fake.name()
