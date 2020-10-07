@@ -5,17 +5,16 @@ from mixer.backend.django import mixer
 
 @pytest.fixture
 def api_client():
-   from rest_framework.test import APIClient
-   return APIClient()
+    from rest_framework.test import APIClient
+
+    return APIClient()
 
 
 @pytest.fixture
-def api_client_with_credentials(
-   user, api_client
-):
-   api_client.force_authenticate(user=user)
-   yield api_client
-   api_client.force_authenticate(user=None)
+def api_client_with_credentials(user, api_client):
+    api_client.force_authenticate(user=user)
+    yield api_client
+    api_client.force_authenticate(user=None)
 
 
 @pytest.fixture
