@@ -1,7 +1,7 @@
 from rest_framework import permissions
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from {{cookiecutter.module_name}}.app.serializers import ProfileSerializer
+from ..serializers import ProfileSerializer
 
 
 class MeProfileView(APIView):

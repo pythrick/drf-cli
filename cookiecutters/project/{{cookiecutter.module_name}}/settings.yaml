@@ -7,7 +7,7 @@ default:
   foo: bar
   # Django Required starting settings
   SECRET_KEY: 1234
-  AUTH_USER_MODEL: app.User
+  AUTH_USER_MODEL: user.User
   STATIC_URL: /static/
   STATIC_ROOT: static
   ALLOWED_HOSTS:
@@ -20,7 +20,8 @@ default:
     - django.contrib.messages
     - django.contrib.staticfiles
     - rest_framework
-    - {{cookiecutter.module_name}}.app
+    - {{cookiecutter.module_name}}.apps.user
+    - {{cookiecutter.module_name}}.apps.rest_api
   MIDDLEWARE:
     - django.middleware.security.SecurityMiddleware
     - django.contrib.sessions.middleware.SessionMiddleware

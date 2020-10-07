@@ -1,5 +1,5 @@
 import pytest
-from {{cookiecutter.module_name}}.app.models import User
+from ...models import User
 
 
 @pytest.mark.django_db
