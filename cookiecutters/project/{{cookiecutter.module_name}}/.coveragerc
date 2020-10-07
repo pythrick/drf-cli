@@ -1,10 +1,10 @@
 [run]
 omit =
   */admin/*
-  */apps/*
   */migrations/*
   */urls/
   */tests/*
+  *apps.py
   *settings*
   *urls.py
   *wsgi.py

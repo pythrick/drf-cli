@@ -31,3 +31,9 @@ class ModelMixin(models.Model):
         blank=False,
         help_text=_("Update datetime"),
     )
+
+    def __str__(self):
+        return f"{self.__class__.__name__}<{self.pk}>"
+
+    def __repr__(self):
+        return f"{self.__class__.__name__}<{self.pk}>"

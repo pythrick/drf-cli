@@ -7,7 +7,7 @@ default:
   foo: bar
   # Django Required starting settings
   SECRET_KEY: 1234
-  AUTH_USER_MODEL: app.User
+  AUTH_USER_MODEL: user.User
   STATIC_URL: /static/
   STATIC_ROOT: static
   ALLOWED_HOSTS:
@@ -19,7 +19,9 @@ default:
     - django.contrib.sessions
     - django.contrib.messages
     - django.contrib.staticfiles
-    - {{cookiecutter.module_name}}.app
+    - rest_framework
+    - {{cookiecutter.module_name}}.apps.user
+    - {{cookiecutter.module_name}}.apps.rest_api
   MIDDLEWARE:
     - django.middleware.security.SecurityMiddleware
     - django.contrib.sessions.middleware.SessionMiddleware
@@ -45,6 +47,11 @@ default:
           - django.template.context_processors.request
           - django.contrib.auth.context_processors.auth
           - django.contrib.messages.context_processors.messages
+  REST_FRAMEWORK:
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    DEFAULT_PERMISSION_CLASSES:
+      - rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly
 
   # Password validation
   # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
